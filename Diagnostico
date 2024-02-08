@@ -1,0 +1,49 @@
+//JoseFernandoMendiolaSanchez_1P_23310161//
+using System;
+
+class Equipo {
+    protected string nombre;
+    protected string entrenador;
+
+    public void SetNombreEntrenador(
+        string _nombre, 
+        string _entrenador) {
+        nombre = _nombre;
+        entrenador = _entrenador;
+    }
+
+    public virtual void MostrarInformacion() {
+        Console.WriteLine($"Nombre del equipo: {nombre}");
+        Console.WriteLine($"Entrenador: {entrenador}");
+    }
+}
+
+class EquipoMexico : Equipo {
+    public override void MostrarInformacion() {
+        base.MostrarInformacion();
+        Console.WriteLine("País: México");
+    }
+}
+
+class EquipoArgentina : Equipo {
+    public override void MostrarInformacion() {
+        base.MostrarInformacion();
+        Console.WriteLine("País: Argentina");
+    }
+}
+
+class Program {
+    static void Main(string[] args) {
+        EquipoMexico equipoMexico = new EquipoMexico();
+        EquipoArgentina equipoArgentina = new EquipoArgentina();
+
+        equipoMexico.SetNombreEntrenador("Seleccion Mexicana", "Jimmy Lozano");
+        equipoArgentina.SetNombreEntrenador("Seleccion Argentina", "Lionel Scaloni");
+
+        Console.WriteLine("Informacion del equipo de México:");
+        equipoMexico.MostrarInformacion();
+
+        Console.WriteLine("\nInformacion del equipo de Argentina:");
+        equipoArgentina.MostrarInformacion();
+    }
+}
